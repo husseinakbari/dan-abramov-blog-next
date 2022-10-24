@@ -1,11 +1,18 @@
 import Image from "next/image";
 import { FC } from "react";
+import classNames from "classnames";
 
 import ProfilePic from "../assets/images/profile-pic.jpeg";
 
-export const Profile: FC = () => {
+interface Props {
+  className?: string;
+}
+
+export const Profile: FC<Props> = ({ className }) => {
+  const containerCN = classNames("flex flex-row items-center", className);
+
   return (
-    <div className="flex flex-row items-center">
+    <div className={containerCN}>
       <div className="w-14 h-14 rounded-full overflow-hidden mr-3">
         <Image src={ProfilePic} />
       </div>
