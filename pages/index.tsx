@@ -1,7 +1,9 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { AppLayout, Profile } from "../components";
 import { PostList } from "../components/PostList";
 import { Post } from "../models";
+import { getAllPost } from "../services/postService";
+import { getDate } from "../utils/date";
 
 interface HomeProps {
   posts: Post[];
@@ -16,10 +18,17 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const posts = await response.json();
+    let posts = await (await getAllPost()).reverse();
+    posts = posts.map((post) => {
+      const postId = post.id;
+      return {
+        ...post,
+        date: getDate(postId),
+      };
+    });
+
     return {
       props: {
         posts,
@@ -29,9 +38,10 @@ export async function getStaticProps() {
     return {
       props: {
         error,
+        posts: [],
       },
     };
   }
-}
+};
 
 export default Home;

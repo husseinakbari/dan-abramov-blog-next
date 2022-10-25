@@ -16,7 +16,7 @@ export const PostItem: FC<Props> = ({ post, className }) => {
     <Link href={`/posts/${post.id}`}>
       <div className={itemClassName}>
         <p className="font-black text-[1.75rem] mb-2 text-pink-500">{post.title}</p>
-        <p className="font-normal text-xs text-black dark:text-pink-100">July 7, 2021 </p>
+        <p className="font-normal text-xs text-black dark:text-pink-100">{post.date}</p>
       </div>
     </Link>
   );
