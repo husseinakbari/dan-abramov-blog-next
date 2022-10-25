@@ -12,9 +12,9 @@ const PostDetail: NextPage<Props> = ({ post }) => {
   return (
     <AppLayout>
       <div className="flex flex-col">
-        <h1 className="mb-2">{post.title}</h1>
-        <p className="font-light text-xs mb-8">July 7, 2021 </p>
-        <p>{post.body}</p>
+        <h1 className="mb-2 text-black dark:text-white">{post.title}</h1>
+        <p className="font-light text-normal mb-8 text-black dark:text-pink-100">July 7, 2021 </p>
+        <p className="text-black dark:text-white">{post.body}</p>
       </div>
     </AppLayout>
   );

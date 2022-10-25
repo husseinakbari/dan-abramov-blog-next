@@ -12,10 +12,12 @@ export const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
-    toggleTheme: (state: ThemeState) => {
+    toggleTheme: (state: ThemeState) => {      
       if (state.mode === "dark") {
+        document.documentElement.classList.replace("light", "dark")
         state.mode = "light";
       } else {
+        document.documentElement.classList.replace("dark", "light")
         state.mode = "dark";
       }
     },

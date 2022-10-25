@@ -12,13 +12,11 @@ interface Props {
 export const PostItem: FC<Props> = ({ post, className }) => {
   const itemClassName = classNames("flex flex-col cursor-pointer", className);
 
-  console.log(post.id);
-
   return (
     <Link href={`/posts/${post.id}`}>
       <div className={itemClassName}>
-        <p className="font-black text-[1.75rem] mb-2">{post.title}</p>
-        <p className="font-light text-xs">July 7, 2021 </p>
+        <p className="font-black text-[1.75rem] mb-2 text-pink-500">{post.title}</p>
+        <p className="font-normal text-xs text-black dark:text-pink-100">July 7, 2021 </p>
       </div>
     </Link>
   );
