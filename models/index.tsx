@@ -3,5 +3,9 @@ export interface Post {
   id: number;
   title: string;
   userId: number;
-  date: string
+  date: string;
+}
+
+export interface ThemeState {
+  mode: "dark" | "light";
 }

@@ -2,27 +2,23 @@ import { FC } from "react";
 import classNames from "classnames";
 
 import styles from "../styles/Toggle.module.css";
+import { ThemeState } from "../models";
 
-interface Props {
-    value: boolean;
-    onChange: () => void
+interface Props extends ThemeState {
+  onChange: () => void;
 }
 
-export const ThemeToggle: FC<Props> = ({
-    value = false,
-    onChange
-}) => {
-
+export const ThemeToggle: FC<Props> = ({ mode, onChange }) => {
   const toggleCheckCN = classNames(styles.wrg_toggle_check, {
-    "!opacity-100": value,
+    "!opacity-100": mode === "dark",
   });
 
   const toggleUncheckCN = classNames(styles.wrg_toggle_uncheck, {
-    "!opacity-0": value,
+    "!opacity-0": mode === "dark",
   });
 
   const toggleCircleCN = classNames(styles.wrg_toggle_circle, {
-    "!left-7": value,
+    "!left-7": mode === "dark",
   });
 
   return (

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import classNames from "classnames";
 
-import ProfilePic from "../assets/images/profile-pic.jpeg";
+import ProfilePic from "../public/profile-pic.jpeg";
 
 interface Props {
   className?: string;

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import classNames from "classnames";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -25,11 +25,15 @@ export const Header: FC<Props> = ({ className }) => {
     }
   );
 
+  useEffect(() => {    
+    document.documentElement.classList.replace("dark", theme)
+  }, [])
+
   return (
     <div className={containerCN}>
       <h1 className="text-3xl font-bold">Overreacted</h1>
       <ThemeToggle
-        value={theme === "dark"}
+        mode={theme}
         onChange={() => dispatch(toggleTheme())}
       />
     </div>
